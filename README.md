@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## API key
+
+Please replace the API key in ./src/api/unsplash.ts with your own.
+More instructions are in the comments.
+If you don't have one, please register at unsplash.com  :)
+
 ## Available Scripts
 
 In the project directory, you can run:
