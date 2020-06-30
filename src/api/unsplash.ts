@@ -7,6 +7,6 @@ import axios from 'axios';
 export default axios.create({
   baseURL: 'https://api.unsplash.com',
   headers: {
-    Authorization: 'Client-ID 74ad2bf202fa57f2b0f6b558386a0c089636f33f4790688ffa3ede3673c991d9'
+    Authorization: '<The API key>'
   }
 });
