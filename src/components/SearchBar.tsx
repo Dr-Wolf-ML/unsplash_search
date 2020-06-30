@@ -5,16 +5,16 @@ interface Props {
 }
 
 interface State {
-  term: string,
+  query: string,
 }
 
 class SearchBar extends Component<Props, State> {
-  state: State = { term: '' };
+  state: State = { query: '' };
 
   onFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    this.props.onSubmit(this.state.term);
+    
+    this.props.onSubmit(this.state.query);
   }
 
   render () {
@@ -25,8 +25,8 @@ class SearchBar extends Component<Props, State> {
           <div className="field">
             <input
               type="text"
-              value={this.state.term}
-              onChange={(e) => this.setState({ term: e.target.value })}
+              value={this.state.query}
+              onChange={(e) => this.setState({ query: e.target.value })}
             />
           </div>
         </form>

@@ -1,37 +1,38 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, RefObject } from 'react';
 
-interface Props {
-  key: any,
-  image: any,
+interface Image {
+  key: string,  
+  image: {
+    id: string,
+    description: string,
+    urls: {
+        regular: string,
+    },
+  }
 }
 
 interface State {
   spans: number,
-  imageRef: any,
+  imageRef: RefObject<HTMLImageElement>,
 }
 
-
-
-class ImageCard extends Component<Props, State> {
-  constructor(props: Props) {
+class ImageCard extends Component<Image, State> {
+  constructor(props: Image) {
     super(props);
 
     this.state = { 
       spans: 0,
       imageRef: createRef(),
     };
-
   }
 
   componentDidMount() {
-    this.state.imageRef.current.addEventListener('load', this.setSpans);
+    this.state.imageRef.current?.addEventListener('load', this.setSpans);
   }
 
   setSpans = () => {
-    const height = this.state.imageRef.current.clientHeight;
-
+    const height = this.state.imageRef.current?.clientHeight ?? 0;
     const spans = Math.ceil(height / 10);
-
     this.setState({ spans });
   }
 
